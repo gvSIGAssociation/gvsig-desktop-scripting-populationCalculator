@@ -24,8 +24,7 @@
     </at>
     <at name="componentclass">com.jeta.forms.gui.form.FormComponent</at>
    </super>
-   <at name="id">/home/osc/gvSIG-desktop/gvSIG-desktop-2.4.0-2841-RC3-lin-x86_64/preferences/gvSIG/plugins/org.gvsig.scripting.app.mainplugin/scripts/addons/populationCalculator/populationCalculator.xml</at>
-   <at name="path">addons/populationCalculator/populationCalculator.xml</at>
+   <at name="id">C:\Users\oskmo\gvSIG\plugins\org.gvsig.scripting.app.mainplugin\scripts\addons\populationCalculator\populationCalculator.xml</at>
    <at name="rowspecs">CENTER:DEFAULT:NONE,CENTER:DEFAULT:NONE,CENTER:DEFAULT:NONE,CENTER:DEFAULT:NONE,CENTER:DEFAULT:NONE,CENTER:DEFAULT:NONE,CENTER:DEFAULT:NONE,CENTER:DEFAULT:NONE,CENTER:DEFAULT:NONE,CENTER:DEFAULT:NONE,CENTER:DEFAULT:NONE</at>
    <at name="colspecs">FILL:DEFAULT:NONE,FILL:DEFAULT:NONE,FILL:DEFAULT:NONE,FILL:136PX:GROW(1.0),FILL:DEFAULT:NONE</at>
    <at name="components">
@@ -75,7 +74,7 @@
              </object>
             </at>
             <at name="name">lblArea</at>
-            <at name="width">66</at>
+            <at name="width">57</at>
             <at name="text">_Area</at>
             <at name="fill">
              <object classname="com.jeta.forms.store.properties.effects.PaintProperty">
@@ -135,7 +134,7 @@
              </object>
             </at>
             <at name="name">lblIndividual</at>
-            <at name="width">66</at>
+            <at name="width">57</at>
             <at name="text">_Individuals</at>
             <at name="fill">
              <object classname="com.jeta.forms.store.properties.effects.PaintProperty">
@@ -194,10 +193,11 @@
               </at>
              </object>
             </at>
+            <at name="horizontalAlignment">4</at>
             <at name="background" object="color">236,233,216</at>
             <at name="editable">false</at>
             <at name="name">txtArea</at>
-            <at name="width">564</at>
+            <at name="width">435</at>
             <at name="height">20</at>
            </object>
           </at>
@@ -231,7 +231,7 @@
           <at name="properties">
            <object classname="com.jeta.forms.store.support.PropertyMap">
             <at name="name">spnRatio</at>
-            <at name="width">564</at>
+            <at name="width">435</at>
             <at name="height">20</at>
            </object>
           </at>
@@ -285,7 +285,7 @@
              </object>
             </at>
             <at name="name">lblPopulation</at>
-            <at name="width">66</at>
+            <at name="width">57</at>
             <at name="text">_Population</at>
             <at name="fill">
              <object classname="com.jeta.forms.store.properties.effects.PaintProperty">
@@ -344,10 +344,11 @@
               </at>
              </object>
             </at>
+            <at name="horizontalAlignment">4</at>
             <at name="background" object="color">236,233,216</at>
             <at name="editable">false</at>
             <at name="name">txtCalculate</at>
-            <at name="width">564</at>
+            <at name="width">435</at>
             <at name="height">20</at>
            </object>
           </at>
@@ -401,7 +402,7 @@
              </object>
             </at>
             <at name="name">lblLayer</at>
-            <at name="width">66</at>
+            <at name="width">57</at>
             <at name="text">_Layer</at>
             <at name="fill">
              <object classname="com.jeta.forms.store.properties.effects.PaintProperty">
@@ -461,7 +462,7 @@
              </object>
             </at>
             <at name="name">cmbLayer</at>
-            <at name="width">564</at>
+            <at name="width">435</at>
             <at name="items">
              <object classname="com.jeta.forms.store.properties.ItemsProperty">
               <at name="name">items</at>
@@ -492,7 +493,7 @@
          </at>
          <at name="componentclass">com.jeta.forms.gui.form.FormComponent</at>
         </super>
-        <at name="id">embedded.1683432442</at>
+        <at name="id">embedded.598411664</at>
         <at name="rowspecs">CENTER:DEFAULT:NONE</at>
         <at name="colspecs">FILL:DEFAULT:NONE,FILL:DEFAULT:NONE,FILL:DEFAULT:NONE,FILL:DEFAULT:NONE,FILL:DEFAULT:NONE</at>
         <at name="components">
@@ -543,7 +544,7 @@
                  </at>
                  <at name="actionCommand">Calcular</at>
                  <at name="name">btnCalcular</at>
-                 <at name="width">78</at>
+                 <at name="width">70</at>
                  <at name="text">Calcular</at>
                  <at name="height">22</at>
                 </object>

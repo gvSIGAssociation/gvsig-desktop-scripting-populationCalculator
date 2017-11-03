@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-import gvsig
+from gvsig import getResource
 from org.gvsig.andami import PluginsLocator
 
 from org.gvsig.tools.swing.api import ToolsSwingLocator
@@ -8,34 +8,37 @@ from org.gvsig.tools.swing.api import ToolsSwingLocator
 from java.io import File
 from org.gvsig.app import ApplicationLocator
 import os
+from org.gvsig.tools import ToolsLocator
+from addons.populationCalculator.main import PopulationCalculatorExtension
 
-from areaCalculator.main import AreaCalculatorExtension
+# Icon made by [author link] from www.flaticon.com
 
-# Icon made by [author link] from www.flaticon.com 
+def i18nRegister():
+    i18nManager = ToolsLocator.getI18nManager()
+    i18nManager.addResourceFamily("text",File(getResource(__file__,"i18n")))
 
 def selfRegister():
 
   application = ApplicationLocator.getManager()
-  
-  icon_show = File(os.path.join(os.path.dirname(__file__),"areacalculator.png")).toURI().toURL()
-  iconTheme = ToolsSwingLocator.getIconThemeManager().getCurrent()
-  iconTheme.registerDefault("scripting.area-calculator", "action", "tools-area-calculator1-show", None, icon_show)
-  
-  extension = AreaCalculatorExtension()
 
+  icon_show = File(os.path.join(os.path.dirname(__file__),"populationcalculator.png")).toURI().toURL()
+  iconTheme = ToolsSwingLocator.getIconThemeManager().getCurrent()
+  iconTheme.registerDefault("scripting.population-calculator", "action", "tools-population-calculator-show", None, icon_show)
+  extension = PopulationCalculatorExtension()
   actionManager = PluginsLocator.getActionInfoManager()
   action_show = actionManager.createAction(
-    extension, 
-    "tools-area-calculator-show", # Action name
-    "AreaCalculator", # Text
+    extension,
+    "tools-population-calculator-show", # Action name
+    "PopulationCalculator", # Text
     "show", # Action command
-    "tools-area-calculator1-show", # Icon name
+    "tools-population-calculator-show", # Icon name
     None, # Accelerator
-    1009000000, # Position 
-    "AreaCalculator" # Tooltip
+    1009000000, # Position
+    "PopulationCalculator" # Tooltip
   )
   action_show = actionManager.registerAction(action_show)
-  application.addTool(action_show, "AreaCalculator")
-  
+  application.addTool(action_show, "PopulationCalculator")
+
 def main(*args):
+    i18nRegister()
     selfRegister()

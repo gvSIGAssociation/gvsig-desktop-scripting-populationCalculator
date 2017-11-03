@@ -1,68 +1,79 @@
 # encoding: utf-8
 
-import gvsig
-from gvsig.libs.formpanel import FormPanel
-import os
+
 from org.gvsig.scripting.app.extension import ScriptingExtension
 from javax.swing import SpinnerNumberModel
 from org.gvsig.tools import ToolsLocator
+from org.gvsig.tools.swing.api import ToolsSwingLocator
+import os
+from java.io import File
+from gvsig import currentView, currentLayer, getResource
+from gvsig.libs.formpanel import FormPanel
 
-
-class AreaCalculatorExtension(ScriptingExtension):
+class PopulationCalculatorExtension(ScriptingExtension):
     def __init__(self):
       pass
-  
+
     def canQueryByAction(self):
       return True
-  
+
     def isEnabled(self,action):
-      return gvsig.currentView()!=None
-  
+      return currentView()!=None
+
     def isVisible(self,action):
-      return gvsig.currentView()!=None
-      
+      return currentView()!=None
+
     def execute(self,actionCommand, *args):
-        l = AreaCalculator()
+        l = PopulationCalculator()
         l.showTool("PopulationCalculator")
-        
-class AreaCalculator(FormPanel):
+
+class PopulationCalculator(FormPanel):
     def __init__(self):
         FormPanel.__init__(self,
                             os.path.join(os.path.dirname(__file__),
                                         "populationCalculator.xml")
                             )
+        self.setPreferredSize(350,150)
+        #i18n = ToolsLocator.getI18nManager()
+
+        #i18n = ToolsSwingLocator.getToolsSwingManager()
+        #i18n.translate(self.lblLayer)
+        #i18n.translate(self.lblArea)
+        #i18n.translate(self.lblIndividual)
+        #i18n.translate(self.lblPopulation)
         i18n = ToolsLocator.getI18nManager()
         self.lblLayer.setText(i18n.getTranslation("_Layer"))
-        
+        self.lblArea.setText(i18n.getTranslation("_Area"))
+        self.lblIndividual.setText(i18n.getTranslation("_Individuals"))
+        self.lblPopulation.setText(i18n.getTranslation("_Population"))
+
         mmin = 0.0
+
         mvalue = 4.0
         mmax = 5000.0
         mstepSize = 0.2
         model = SpinnerNumberModel(mvalue, mmin, mmax, mstepSize)
         self.spnRatio.setModel(model)
-        layers = gvsig.currentView().getLayers()
+        layers = currentView().getLayers()
         self.cmbLayer.removeAllItems()
         for layer in layers:
             self.cmbLayer.addItem(str(layer.getName()))#[str(layer.getName()),layer])
-            
+
     def cmbLayer_change(self, *args):
         self.calculate()
-        
+
     def spnRatio_change(self, *args):
         self.calculate()
-    
+
     def calculate(self,*args):
         name = self.cmbLayer.getSelectedItem()
-        layer = gvsig.currentView().getLayer(name)
+        layer = currentView().getLayer(name)
         if layer==None:
             return 0
         totalArea = calculateTotalArea(layer)
         self.txtArea.setText(str(totalArea))
         ratio = self.spnRatio.getValue()
-        try:
-            ratio = float(ratio)
-        except:
-            ratio = 1
+        ratio = float(ratio)
         calculate = totalArea * ratio
         try:
           strCalculate = str(calculate)[0:-2]
@@ -82,7 +93,7 @@ def calculateTotalArea(layer):
     if layer==None:
         return 0
     layerType = layer.getGeometryType().getName()
-    if layerType == "MultiPolygon2D" or layerType=="Polygon2D":
+    if layerType == "MultiPolygon2D" or layerType=="Polygon2D" or layerType=="MultiSurface":
         pass
     else:
         return 0
@@ -95,10 +106,8 @@ def calculateTotalArea(layer):
     return int(totalArea)
 
 def main(*args):
-    #layer = gvsig.currentLayer()
-    #value = calculateTotalArea(layer)
-    #print "Area total: ", value
-    #return
-    l = AreaCalculator()
+    layer = currentLayer()
+    print "CAL: ", calculateTotalArea(layer)
+
+    l = PopulationCalculator()
     l.showTool("Area Calculator")
-    pass
