@@ -1,11 +1,11 @@
 #
-#Mon Oct 30 21:18:52 CET 2017
+#Tue Nov 14 19:09:24 CET 2017
 owner=
-code=areaCalculator
+code=populationCalculator
 java-version=j1_7
-official=false
+official=true
 type=Script
-version=1.0.0-0
+version=1.0.0-2
 state=testing
 operating-system=all
 dependencies=
@@ -16,6 +16,6 @@ model-version=1.0.1
 categories=
 description=
 owner-url=
-buildNumber=0
-gvSIG-version=2.4.0
-name=areaCalculator
+buildNumber=2
+gvSIG-version=2.3.1
+name=Population Calculator

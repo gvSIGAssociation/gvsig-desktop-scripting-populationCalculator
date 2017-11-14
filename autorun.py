@@ -1,4 +1,8 @@
 # encoding: utf-8
+import gvsig
+
+import os
+open(os.path.normpath(os.path.join(__file__,"..","..", "__init__.py")), "a").close()
 
 from gvsig import getResource
 from org.gvsig.andami import PluginsLocator
@@ -29,15 +33,15 @@ def selfRegister():
   action_show = actionManager.createAction(
     extension,
     "tools-population-calculator-show", # Action name
-    "PopulationCalculator", # Text
+    "Population Calculator", # Text
     "show", # Action command
     "tools-population-calculator-show", # Icon name
     None, # Accelerator
     1009000000, # Position
-    "PopulationCalculator" # Tooltip
+    "Population Calculator" # Tooltip
   )
   action_show = actionManager.registerAction(action_show)
-  application.addTool(action_show, "PopulationCalculator")
+  application.addTool(action_show, "Population Calculator")
 
 def main(*args):
     i18nRegister()
