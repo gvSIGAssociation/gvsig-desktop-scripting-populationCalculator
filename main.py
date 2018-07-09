@@ -10,8 +10,8 @@ from gvsig.libs.formpanel import FormPanel
 from org.gvsig.fmap.geom.primitive import OrientableSurface
 from org.gvsig.fmap.geom import Geometry
 
-import os
-open(os.path.normpath(os.path.join(__file__,"..","..", "__init__.py")), "a").close()
+#import os
+#open(os.path.normpath(os.path.join(__file__,"..","..", "__init__.py")), "a").close()
 
 from java.text import NumberFormat
 from java.util import Locale
@@ -36,10 +36,7 @@ class PopulationCalculatorExtension(ScriptingExtension):
 
 class PopulationCalculator(FormPanel):
     def __init__(self):
-        FormPanel.__init__(self,
-                            os.path.join(os.path.dirname(__file__),
-                                        "populationCalculator.xml")
-                            )
+        FormPanel.__init__(self, getResource(__file__,"populationCalculator.xml"))
         self.setPreferredSize(350,150)
         #i18n = ToolsLocator.getI18nManager()
 

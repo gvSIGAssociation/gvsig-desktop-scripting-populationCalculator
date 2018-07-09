@@ -1,8 +1,8 @@
 # encoding: utf-8
 import gvsig
 
-import os
-open(os.path.normpath(os.path.join(__file__,"..","..", "__init__.py")), "a").close()
+#import os
+#open(os.path.normpath(os.path.join(__file__,"..","..", "__init__.py")), "a").close()
 
 from gvsig import getResource
 from org.gvsig.andami import PluginsLocator
