@@ -1,11 +1,11 @@
 #
-#Tue Nov 14 19:09:24 CET 2017
+#Mon Jul 09 16:09:01 CEST 2018
 owner=
 code=populationCalculator
 java-version=j1_7
 official=true
-type=Script
-version=1.0.0-2
+type=translations
+version=1.0.0-3
 state=testing
 operating-system=all
 dependencies=
@@ -14,8 +14,8 @@ web-url=
 architecture=all
 model-version=1.0.1
 categories=
-description=
+description=Plugin to calculate a population in a selected polygon layer in function of a given density
 owner-url=
-buildNumber=2
-gvSIG-version=2.3.1
+buildNumber=3
+gvSIG-version=2.4.1
 name=Population Calculator
