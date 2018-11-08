@@ -25,7 +25,7 @@ def selfRegister():
 
   application = ApplicationLocator.getManager()
 
-  icon_show = File(os.path.join(os.path.dirname(__file__),"populationcalculator.png")).toURI().toURL()
+  icon_show = File(gvsig.getResource(__file__,"populationcalculator.png")).toURI().toURL()
   iconTheme = ToolsSwingLocator.getIconThemeManager().getCurrent()
   iconTheme.registerDefault("scripting.population-calculator", "action", "tools-population-calculator-show", None, icon_show)
   extension = PopulationCalculatorExtension()
